@@ -6,4 +6,4 @@ Requirements:
 - Python3
 - pip install editpyxl
 
-![Alt text](image.png)
+![Alt text]([image.png](https://github.com/eddieKarlsson/create-project-gui/blob/main/img.png?raw=true))
