@@ -6,4 +6,4 @@ Requirements:
 - Python3
 - pip install editpyxl
 
-![Screenshot](image.png)
+![Alt text](image.png)
