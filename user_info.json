@@ -1,11 +1,11 @@
 {
-    "destination_folder": "C:/Users/EddieKarlsson/scripts/test/test",
-    "project_name": "proj3",
-    "project_number": "221337",
-    "project_template_path": "C:/Users/EddieKarlsson/scripts/test/templates",
+    "destination_folder": "C:/Users/EddieKarlsson/Project/TP/romania_uhtd_upgrade",
+    "project_name": "uhtd_romania",
+    "project_number": "1337",
+    "project_template_path": "P:/03 - Projektmall/01 Slutkund",
     "available_folders": [
-        "maskin",
-        "project"
+        "01 Maskin 1 (Maskinmall)",
+        "YYxxxx Projektnamn (Projektmall)"
     ],
-    "selected_folder": "project"
+    "selected_folder": "01 Maskin 1 (Maskinmall)"
 }
