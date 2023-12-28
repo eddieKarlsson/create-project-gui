@@ -1,6 +1,5 @@
 ## Create a project tree from GUI
-#### Copies and renames the project template and edits specified excel file(s) and cell(s) with the provided information
-'
+#### Copies and renames the project template files and folder, edits specified excel file(s) and cell(s) with the provided information
 
 Requirements:
 - Python3
