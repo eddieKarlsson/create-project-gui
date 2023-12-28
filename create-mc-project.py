@@ -210,6 +210,16 @@ class CreateProjGui:
 
         print("**File renaming completed**")
 
+    def delete_temporary_files(self, folder_path):
+        for root, _, files in os.walk(folder_path):
+            for file in files:
+                if file.startswith('~$'):
+                    file_path = os.path.join(root, file)
+                    try:
+                        os.remove(file_path)
+                    except Exception as e:
+                        print(f"Error deleting file {file_path}: {e}")
+
     def run(self):
         self.user_info["project_name"] = self.project_name_entry.get()
         self.user_info["project_number"] = self.project_number_entry.get()
@@ -231,6 +241,7 @@ class CreateProjGui:
 
             self.edit_excel_files(new_folder_path)
             self.replace_projnr_in_filenames(new_folder_path)
+            self.delete_temporary_files(new_folder_path)
         print("**Completed**")
 
 
