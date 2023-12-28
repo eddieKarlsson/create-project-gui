@@ -4,6 +4,7 @@ import json
 import tkinter as tk
 from tkinter import filedialog, simpledialog, ttk
 from editpyxl import Workbook
+import re
 
 
 class CreateProjGui:
@@ -11,18 +12,18 @@ class CreateProjGui:
 
       # Define Excel file paths relative to the new folder
         self.excel_files_to_edit = {
-            "Automation\Test document\TD YYMMDD.xlsx": {
+            "Automation/Test document/TD YYMMDD.xlsx": {
                 "project_number": "F1",
                 "project_name": "F2",
                 "sheet": "Overview"
             },
-            "Automation\Manuals\AD YYMMDD.xlsx": {
+            "Automation/Manuals/AD YYMMDD.xlsx": {
                 "project_number": "W1",
                 "project_name": "W2",
                 "sheet": "AD_Machine 1"
 
             },
-            "Automation\YYxxxx WB.xlsx": {
+            "Automation/YYxxxx WB.xlsx": {
                 "project_number": "C1",
                 "project_name": "C2",
                 "sheet": "Overview"
@@ -178,6 +179,31 @@ class CreateProjGui:
             else:
                 print(f"Excel file not found: {excel_file_path}")
 
+    def replace_projnr_in_filenames(self, new_folder_path):
+        project_number = self.user_info["project_number"]
+
+        # Define the patterns to search for in filenames
+        patterns = ['YYxxxx', 'xxxxxx', '250xxx',
+                    '240xxx', '230xxx', '220xxx', '25xxxx', '24xxxx', '23xxxx', '22xxxx']
+
+        for root, dirs, files in os.walk(new_folder_path):
+            for filename in files:
+                for pattern in patterns:
+                    if re.search(pattern, filename):
+                        new_filename = filename.replace(
+                            pattern, project_number)
+                        file_path = os.path.join(root, filename)
+                        new_file_path = os.path.join(root, new_filename)
+
+                        try:
+                            os.rename(file_path, new_file_path)
+                            print(f"File renamed: {
+                                  file_path} -> {new_file_path}")
+                        except Exception as e:
+                            print(f"Error renaming file {file_path}: {e}")
+
+        print("**File renaming completed**")
+
     def run(self):
         self.user_info["project_name"] = self.project_name_entry.get()
         self.user_info["project_number"] = self.project_number_entry.get()
@@ -198,6 +224,8 @@ class CreateProjGui:
             print("Content copied to:", new_folder_path)
 
             self.edit_excel_files(new_folder_path)
+            self.replace_projnr_in_filenames(new_folder_path)
+        print("**Completed**")
 
 
 if __name__ == "__main__":
