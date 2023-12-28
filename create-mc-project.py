@@ -197,8 +197,8 @@ class CreateProjGui:
 
                         try:
                             os.rename(file_path, new_file_path)
-                            print(f"File renamed: {
-                                  file_path} -> {new_file_path}")
+                            # print(f"File renamed: {
+                            #      file_path} -> {new_file_path}")
                         except Exception as e:
                             print(f"Error renaming file {file_path}: {e}")
 
