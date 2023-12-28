@@ -28,6 +28,12 @@ class CreateProjGui:
                 "project_name": "C2",
                 "sheet": "Overview"
 
+            },
+            "Project management/23xxxx PM V1.1.xlsx": {
+                "project_number": "C1",
+                "project_name": "C2",
+                "sheet": "Overview"
+
             }
 
         }
